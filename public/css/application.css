@@ -1,0 +1,8 @@
+body {
+  background-image: url("../images/uscapitol.jpg");
+  background-color: rgba(182, 232, 250, 0.5);
+}
+
+#nav {
+  background-color: rgba(217, 217, 217, 0.6);
+}
