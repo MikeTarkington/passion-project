@@ -7,10 +7,11 @@ body {
   background-color: rgba(217, 217, 217, 0.6);
 }
 
-#questionnaire {
+#member-list {
   background-color: rgba(182, 232, 250, 0.7);
   max-width: 500px;
   border-radius: 25px;
   height: 700px;
   margin: 50px 50px 50px 50px;
+  overflow-y: scroll;
 }

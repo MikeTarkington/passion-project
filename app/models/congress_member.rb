@@ -40,7 +40,7 @@ class CongressMember
 
   def get_member_basic_info(full_name, state)
     found_member = {}
-    get_basic_member_details.each do |member|
+    self.get_basic_member_details.each do |member|
       if full_name == member[:full_name] && state == member[:state]
         found_member = member
       end
@@ -52,4 +52,4 @@ end
 
  members = CongressMember.new
  # p members.get_basic_member_details
- p members.get_basic_member_details.get_member_basic_info("Bruce Westerman", "AR")
+ p members.get_member_basic_info("Bruce Westerman", "AR")
