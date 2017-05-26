@@ -14,7 +14,10 @@ gem 'rake'
 
 gem 'shotgun', '~>0.9.1'
 
+gem 'json', '~> 1.8', '>= 1.8.3'
+
 gem 'bcrypt'
+gem 'dotenv'
 
 group :test do
   gem 'shoulda-matchers'
