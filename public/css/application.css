@@ -1,8 +1,16 @@
 body {
   background-image: url("../images/uscapitol.jpg");
-  background-color: rgba(182, 232, 250, 0.5);
+  background-color: rgb(182, 232, 250);
 }
 
 #nav {
   background-color: rgba(217, 217, 217, 0.6);
+}
+
+#questionnaire {
+  background-color: rgba(182, 232, 250, 0.7);
+  max-width: 500px;
+  border-radius: 25px;
+  height: 700px;
+  margin: 50px 50px 50px 50px;
 }
