@@ -4,7 +4,7 @@ require 'net/http'
 require 'openssl'
 require 'json'
 
-# class CongressMembers
+class CongressMembers
   url = URI("https://api.propublica.org/congress/v1/115/house/members.json")
 
   http = Net::HTTP.new(url.host, url.port)
@@ -29,4 +29,7 @@ require 'json'
     p house_members_115_details[i]["votes_with_party_pct"]
   end
 
-# end
+  def get_member_basic_info()
+  end
+
+end
