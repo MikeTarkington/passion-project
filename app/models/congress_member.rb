@@ -48,8 +48,11 @@ class CongressMember
     found_member
   end
 
+  def get_member_full_info#(full_name, state)
+    @house_members_115
+  end
+
 end
 
- members = CongressMember.new
- # p members.get_basic_member_details
- p members.get_member_basic_info("Bruce Westerman", "AR")
+member = CongressMember.new
+member.get_member_full_info
