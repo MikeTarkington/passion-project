@@ -1,7 +1,8 @@
 <div id="member-show">
-  Name(sorted by last) - State - Party - % Voting with Party
-  
-    <p style="margin-left: 20px";><a href="/congress_members/show"><%= "#{member[:full_name]} - #{member[:state]} - #{member[:party]} - #{member[:votes_with_party_pct]}" %></a></p>
-  <% end %>
-  <%=  %>
+  <label>Name:</label><%= @member_full_deets["first_name"] + " " + @member_full_deets["last_name"] %><br>
+  <label>State</label><%= @member_full_deets["state"] %><br>
+  <label>Party</label><%= @member_full_deets["party"] %><br>
+  <label>District</label><%= @member_full_deets["district"] %><br>
+  <label>Phone</label><%= @member_full_deets["phone"] %><br>
+  <label>House Profile</label><%= @member_full_deets["url"] %><br>
 </div>

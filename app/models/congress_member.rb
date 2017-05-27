@@ -24,6 +24,18 @@ class CongressMember
     @house_members_115 = JSON.parse(pre_parse)
   end
 
+  def get_member_full_info(full_name, state)
+    member_full_details = @house_members_115["results"][0]["members"]
+    found_member = []
+    member_full_details.each do |member|
+      member_full_name = "#{member["first_name"]}" + " #{member["last_name"]}"
+      if full_name == member_full_name && state == member["state"]
+        found_member = member
+      end
+    end
+    found_member
+  end
+
   def get_basic_member_details
     house_members_115_details = @house_members_115["results"][0]["members"]
     member_basics_hashes = []
@@ -48,11 +60,7 @@ class CongressMember
     found_member
   end
 
-  def get_member_full_info#(full_name, state)
-    @house_members_115
-  end
-
 end
 
-member = CongressMember.new
-member.get_member_full_info
+# member = CongressMember.new
+# p member.get_member_full_info()
