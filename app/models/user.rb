@@ -1,7 +1,8 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  # associations
+  has_many :responses
+  has_many :quizzes, through: :responses, source: :quiz_id
 
   validates_presence_of :username, :email, :password_hash
   validates_uniqueness_of :username, :email

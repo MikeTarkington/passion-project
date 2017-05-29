@@ -1,7 +1,1 @@
-<div id="member-show">
-  Name(sorted by last) - State - Party - % Voting with Party
-  
-    <p style="margin-left: 20px";><a href="/congress_members/show"><%= "#{member[:full_name]} - #{member[:state]} - #{member[:party]} - #{member[:votes_with_party_pct]}" %></a></p>
-  <% end %>
-  <%=  %>
-</div>
+<%= erb :'congress_members/_member_search_result', {layout: false, locals: {full_deets: @member_full_deets } } %>
