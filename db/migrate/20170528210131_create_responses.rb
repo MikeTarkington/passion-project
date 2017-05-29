@@ -8,6 +8,7 @@ class CreateResponses < ActiveRecord::Migration
       t.string :response_3
       t.string :response_4
       t.string :response_5
+      t.string :quiz_result
       t.belongs_to :quiz, index: true
       t.belongs_to :user, index: true
 
