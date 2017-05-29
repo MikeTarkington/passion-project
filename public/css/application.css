@@ -49,3 +49,8 @@ body {
   vertical-align: top;
   line-height: inherit;
 }
+
+#search-result-holder {
+  display: inline-block;
+  position: absolute;
+}
