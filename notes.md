@@ -1,3 +1,11 @@
+General Heroku Commands to Deploy project:
+- bundle exec rackup -p 9292 config.ru & (test locally)
+- heroku create
+- git push heroku master
+- heroku config:set API_KEY_VARIABLE_NAME='blah' ANOTHER_API_KEY='blah' (used to set your keys for api calls)
+- heroku logs
+- heroku logs --tail (to view console session that watches server activity continuously)
+
 association brainstorm:
 - user has many questionnaires
 - user has many answers through questionnaires
