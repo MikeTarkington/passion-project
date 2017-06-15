@@ -12,3 +12,36 @@ users_needed.times do
   user = User.create(person)
 
 end
+
+max_responses = 15
+responses_needed = max_responses - Response.count
+
+responses_needed.times do
+  response_set = {}
+  response_set[:response_1] = ["Strongly Disagree", "Disagree", "Somewhat Agree", "Agree", "Strongly Agree"].sample
+  response_set[:response_2] = ["Strongly Disagree", "Disagree", "Somewhat Agree", "Agree", "Strongly Agree"].sample
+  response_set[:response_3] = ["Strongly Disagree", "Disagree", "Somewhat Agree", "Agree", "Strongly Agree"].sample
+  response_set[:response_4] = ["Strongly Disagree", "Disagree", "Somewhat Agree", "Agree", "Strongly Agree"].sample
+  response_set[:response_5] = ["Strongly Disagree", "Disagree", "Somewhat Agree", "Agree", "Strongly Agree"].sample
+  response_set[:quiz_id] = [1, 2, 3, 4, 5].sample
+  response_set[:user_id] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].sample
+  response_set[:quiz_result] = ['far left liberal', 'liberal', 'moderate liberal', 'moderate', 'moderate conservative', 'conservative', 'far right conservative'].sample
+
+  response = Response.create(response_set)
+
+end
+
+max_quizzes = 15
+quizzes_needed = max_quizzes - Quiz.count
+
+quizzes_needed.times do
+  quiz_questions = {}
+  quiz_questions[:question_1] = 'Global warming is a man-made problem.'
+  quiz_questions[:question_2] = 'Abortions should be legal under certain circumstances.'
+  quiz_questions[:question_3] = 'The most successful and wealtheist citizens of a nation are the primary driving force of national success.'
+  quiz_questions[:question_4] = 'Government regulations interfere with freedom more than they help protect it.'
+  quiz_questions[:question_5] = 'We need a large government in order to handle all the important tasks where the prosperity of the public is at stake.'
+
+  quiz = Quiz.create(quiz_questions)
+
+end
