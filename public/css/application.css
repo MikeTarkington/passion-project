@@ -54,3 +54,22 @@ body {
   display: inline-block;
   position: absolute;
 }
+
+#quiz-form-box {
+  background-color: rgba(182, 232, 250, 0.8);
+  max-width: 500px;
+  border-radius: 25px;
+  height: 700px;
+  margin: 50px 50px 50px 50px;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+}
+#quiz-result-box {
+  background-color: rgba(182, 232, 250, 0.8);
+  max-width: 650px;
+  border-radius: 25px;
+  height: 300px;
+  margin: 50px 50px 50px 50px;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+}

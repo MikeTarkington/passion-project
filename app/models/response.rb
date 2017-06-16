@@ -13,9 +13,7 @@ class Response < ActiveRecord::Base
       self.left = 0
       self.right = 0
       self.political_stance = 0
-      # binding.pry
 
-      # answer_1 = response_1
 
     if response_1 == "Strongly Agree"
       self.left += 3
@@ -82,11 +80,6 @@ class Response < ActiveRecord::Base
     elsif self.left >= 14 && self.left <= 15
       self.political_stance = 1
     end
-
-    p self.right
-    p self.left
-    p self.political_stance
-
   end
 
   def set_quiz_result

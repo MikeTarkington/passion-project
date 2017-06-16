@@ -110,142 +110,142 @@ db.execute(create_quiz_results_table_cmd)
 
 # -- BUSINESS LOGIC
 
-def stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
-
-  left = 0
-  right = 0
-  political_stance = 0
-
-  if answer_1 == 1
-    left += 3
-  elsif answer_1 == 2
-    right += 3
-  elsif answer_1 == 3
-    left += 2
-  elsif answer_1 == 4
-    right += 2
-  end
-
-  if answer_2 == 1
-    left += 3
-  elsif answer_2 == 2
-    right += 3
-  elsif answer_2 == 3
-    left += 2
-  elsif answer_2 == 4
-    right += 2
-  end
-
-  if answer_3 == 1
-    right += 3
-  elsif answer_3 == 2
-    left += 3
-  elsif answer_3 == 3
-    right += 2
-  elsif answer_3 == 4
-    left += 2
-  end
-
-  if answer_4 == 1
-    right += 3
-  elsif answer_4 == 2
-    left += 3
-  elsif answer_4 == 3
-    right += 2
-  elsif answer_4 == 4
-    left += 2
-  end
-
-  if answer_5 == 1
-    left += 3
-  elsif answer_5 == 2
-    right += 3
-  elsif answer_5 == 3
-    left += 2
-  elsif answer_5 == 4
-    right += 2
-  end
-
-  puts "You have #{left} points toward liberalism and #{right} points toward conservatism."
-
-  if left <= 1
-    political_stance = 7
-  elsif left >= 2 && left <= 4
-    political_stance = 6
-  elsif left >= 5 && left <= 6
-    political_stance = 5
-  elsif left >= 7 && left <= 8
-    political_stance = 4
-  elsif left >= 9 && left <= 10
-    political_stance = 3
-  elsif left >= 11 && left <= 13
-    political_stance = 2
-  elsif left >= 14 && left <= 15
-    political_stance = 1
-  end
-
-end
-
-def create_user(db, name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
-  db.execute("INSERT INTO users (name, email, password, answer_id_1, answer_id_2, answer_id_3, answer_id_4, answer_id_5, political_stance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
-end
-
-# --USER INTERFACE--
-
-puts "Welcome to the mini political position assement app!"
-puts " "
-puts "Enter the basics to create your account and then answer a handful of quick questions to start getting a sense of your true political standing on a spectrum of liberalism to conservatism.  Obviously ones views and political opinions are too complex to be summed up in 5 simple questions, but it's a good start on our journey toward better citizenship and self understanding."
-puts " "
-puts "What is your name?"
-name = gets.chomp
-
-puts "What is your email address?"
-email = gets.chomp
-
-puts "What is your password?"
-password = gets.chomp
-
-puts "Answer the following questions by entering the number corresponding with your degree of agreement with each statement.  The options are as follows:"
-puts "1 = Strongly Agree"
-puts "2 = Strongly Disagree"
-puts "3 = Somewhat Agree"
-puts "4 = Somewhat Disagree"
-puts "5 = Unsure"
-
-questions = db.execute("SELECT * FROM questions")
-
-puts "Question 1:"
-puts questions[0][1]
-puts "Your answer number:"
-answer_1 = gets.chomp.to_i
-
-puts "Question 2:"
-puts questions[1][1]
-puts "Your answer number:"
-answer_2 = gets.chomp.to_i
-
-puts "Question 3:"
-puts questions[2][1]
-puts "Your answer number:"
-answer_3 = gets.chomp.to_i
-
-puts "Question 4:"
-puts questions[3][1]
-puts "Your answer number:"
-answer_4 = gets.chomp.to_i
-
-puts "Question 5:"
-puts questions[4][1]
-puts "Your answer number:"
-answer_5 = gets.chomp.to_i
-
-political_stance = stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
-create_user(db, name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
-quiz_result_stance = db.execute("SELECT quiz_results.result FROM users JOIN quiz_results ON quiz_results.id = users.political_stance WHERE email = '#{email}'")
-quiz_result_stance = quiz_result_stance[0]['result']
-puts " "
-puts "Based on the few questions you've answered we estimate you're probably a \"#{quiz_result_stance}\"."
-puts "It shouldn't be too surprising if you don't agree with this assessment because there's a good chance it's not very accurate. We recommend researching what it means to have liberal vs conservative political views and trying to look inside yourself to consider where you stand on that spectrum."
+# def stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
+#
+#   left = 0
+#   right = 0
+#   political_stance = 0
+#
+#   if answer_1 == 1
+#     left += 3
+#   elsif answer_1 == 2
+#     right += 3
+#   elsif answer_1 == 3
+#     left += 2
+#   elsif answer_1 == 4
+#     right += 2
+#   end
+#
+#   if answer_2 == 1
+#     left += 3
+#   elsif answer_2 == 2
+#     right += 3
+#   elsif answer_2 == 3
+#     left += 2
+#   elsif answer_2 == 4
+#     right += 2
+#   end
+#
+#   if answer_3 == 1
+#     right += 3
+#   elsif answer_3 == 2
+#     left += 3
+#   elsif answer_3 == 3
+#     right += 2
+#   elsif answer_3 == 4
+#     left += 2
+#   end
+#
+#   if answer_4 == 1
+#     right += 3
+#   elsif answer_4 == 2
+#     left += 3
+#   elsif answer_4 == 3
+#     right += 2
+#   elsif answer_4 == 4
+#     left += 2
+#   end
+#
+#   if answer_5 == 1
+#     left += 3
+#   elsif answer_5 == 2
+#     right += 3
+#   elsif answer_5 == 3
+#     left += 2
+#   elsif answer_5 == 4
+#     right += 2
+#   end
+#
+#   puts "You have #{left} points toward liberalism and #{right} points toward conservatism."
+#
+#   if left <= 1
+#     political_stance = 7
+#   elsif left >= 2 && left <= 4
+#     political_stance = 6
+#   elsif left >= 5 && left <= 6
+#     political_stance = 5
+#   elsif left >= 7 && left <= 8
+#     political_stance = 4
+#   elsif left >= 9 && left <= 10
+#     political_stance = 3
+#   elsif left >= 11 && left <= 13
+#     political_stance = 2
+#   elsif left >= 14 && left <= 15
+#     political_stance = 1
+#   end
+#
+# end
+#
+# def create_user(db, name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
+#   db.execute("INSERT INTO users (name, email, password, answer_id_1, answer_id_2, answer_id_3, answer_id_4, answer_id_5, political_stance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
+# end
+#
+# # --USER INTERFACE--
+#
+# puts "Welcome to the mini political position assement app!"
+# puts " "
+# puts "Enter the basics to create your account and then answer a handful of quick questions to start getting a sense of your true political standing on a spectrum of liberalism to conservatism.  Obviously ones views and political opinions are too complex to be summed up in 5 simple questions, but it's a good start on our journey toward better citizenship and self understanding."
+# puts " "
+# puts "What is your name?"
+# name = gets.chomp
+#
+# puts "What is your email address?"
+# email = gets.chomp
+#
+# puts "What is your password?"
+# password = gets.chomp
+#
+# puts "Answer the following questions by entering the number corresponding with your degree of agreement with each statement.  The options are as follows:"
+# puts "1 = Strongly Agree"
+# puts "2 = Strongly Disagree"
+# puts "3 = Somewhat Agree"
+# puts "4 = Somewhat Disagree"
+# puts "5 = Unsure"
+#
+# questions = db.execute("SELECT * FROM questions")
+#
+# puts "Question 1:"
+# puts questions[0][1]
+# puts "Your answer number:"
+# answer_1 = gets.chomp.to_i
+#
+# puts "Question 2:"
+# puts questions[1][1]
+# puts "Your answer number:"
+# answer_2 = gets.chomp.to_i
+#
+# puts "Question 3:"
+# puts questions[2][1]
+# puts "Your answer number:"
+# answer_3 = gets.chomp.to_i
+#
+# puts "Question 4:"
+# puts questions[3][1]
+# puts "Your answer number:"
+# answer_4 = gets.chomp.to_i
+#
+# puts "Question 5:"
+# puts questions[4][1]
+# puts "Your answer number:"
+# answer_5 = gets.chomp.to_i
+#
+# political_stance = stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
+# create_user(db, name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
+# quiz_result_stance = db.execute("SELECT quiz_results.result FROM users JOIN quiz_results ON quiz_results.id = users.political_stance WHERE email = '#{email}'")
+# quiz_result_stance = quiz_result_stance[0]['result']
+# puts " "
+# puts "Based on the few questions you've answered we estimate you're probably a \"#{quiz_result_stance}\"."
+# puts "It shouldn't be too surprising if you don't agree with this assessment because there's a good chance it's not very accurate. We recommend researching what it means to have liberal vs conservative political views and trying to look inside yourself to consider where you stand on that spectrum."
 
 # working on queries to show each individual answer for the questions and then offering a chance for them to update
 # answers = db.execute("SELECT answers.answer FROM users
