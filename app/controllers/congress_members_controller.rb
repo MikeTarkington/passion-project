@@ -15,3 +15,7 @@ post '/congress_members' do
     erb :'/congress_members/show'
   end
 end
+
+get '/congress_members/:id' do
+  
+end

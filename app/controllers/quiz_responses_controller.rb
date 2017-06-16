@@ -1,3 +1,8 @@
+get '/quiz_responses/new' do
+  @quiz = Quiz.first #will need to change if there are ever more quizes with diff questions
+  erb :'/quiz_responses/new'
+end
+
 post '/quiz_responses' do
   params[:response][:user_id] = current_user.id
   @resp = Response.new(params[:response])
