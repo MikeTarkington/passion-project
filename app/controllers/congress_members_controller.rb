@@ -1,3 +1,11 @@
+get '/congress_members' do
+  @users = User.all
+  @congress_member = CongressMember.new
+  @members = @congress_member.get_basic_member_details
+  erb :'congress_members/finder'
+end
+
+
 post '/congress_members' do
   @member_to_show = CongressMember.new
   @member_full_deets = @member_to_show.get_member_full_info(params["full_name"], params["state"])

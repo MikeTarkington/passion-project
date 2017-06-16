@@ -1,6 +1,4 @@
 get '/' do
-  @users = User.all
-  @congress_member = CongressMember.new
-  @members = @congress_member.get_basic_member_details
-  erb :'lrstance'
+  @quiz = Quiz.first #will need to change if there are ever more quizes with diff questions
+  erb :'/quiz_responses/new'
 end
