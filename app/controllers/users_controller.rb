@@ -12,3 +12,8 @@ post '/users' do
     erb :'users/new'
   end
 end
+
+get '/users/:id' do
+  @user = User.find(current_user.id)
+  erb :'/users/show'
+end

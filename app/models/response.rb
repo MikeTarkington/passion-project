@@ -2,80 +2,101 @@ class Response < ActiveRecord::Base
   belongs_to :user
   belongs_to :quiz
 
-  def initialize
-    @left = 0
-    @right = 0
-    @political_stance = 0
+  def initialize(args = {})
+    super
+    stance_determinator
+    set_quiz_result
   end
 
-  def stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
-
+  def stance_determinator
     # although it may appear easy, this cannot be simply dried up because the questions and answers intentionally do not have a pattern granting points to the left or right based on degree of agreement... rather the answers giving points to left or right are mixed up so that users do not consciously(or subconsiously) abuse a pattern they might have noticed.
+      self.left = 0
+      self.right = 0
+      self.political_stance = 0
 
-    if answer_1 == "Strongly Agree"
-      @left += 3
-    elsif answer_1 == "Strongly Disagree"
-      @right += 3
-    elsif answer_1 == "Agree"
-      @left += 2
-    elsif answer_1 == "Disagree"
-      @right += 2
+
+    if response_1 == "Strongly Agree"
+      self.left += 3
+    elsif response_1 == "Strongly Disagree"
+      self.right += 3
+    elsif response_1 == "Agree"
+      self.left += 2
+    elsif response_1 == "Disagree"
+      self.right += 2
     end
 
-    if answer_2 == "Strongly Agree"
-      @left += 3
-    elsif answer_2 == "Strongly Disagree"
-      @right += 3
-    elsif answer_2 == "Agree"
-      @left += 2
-    elsif answer_2 == "Disagree"
-      @right += 2
+    if response_2 == "Strongly Agree"
+      self.left += 3
+    elsif response_2 == "Strongly Disagree"
+      self.right += 3
+    elsif response_2 == "Agree"
+      self.left += 2
+    elsif response_2 == "Disagree"
+      self.right += 2
     end
 
-    if answer_3 == "Strongly Agree"
-      @right += 3
-    elsif answer_3 == "Strongly Disagree"
-      @left += 3
-    elsif answer_3 == "Agree"
-      @right += 2
-    elsif answer_3 == "Disagree"
-      @left += 2
+    if response_3 == "Strongly Agree"
+      self.right += 3
+    elsif response_3 == "Strongly Disagree"
+      self.left += 3
+    elsif response_3 == "Agree"
+      self.right += 2
+    elsif response_3 == "Disagree"
+      self.left += 2
     end
 
-    if answer_4 == "Strongly Agree"
-      @right += 3
-    elsif answer_4 == "Strongly Disagree"
-      @left += 3
-    elsif answer_4 == "Agree"
-      @right += 2
-    elsif answer_4 == "Disagree"
-      @left += 2
+    if response_4 == "Strongly Agree"
+      self.right += 3
+    elsif response_4 == "Strongly Disagree"
+      self.left += 3
+    elsif response_4 == "Agree"
+      self.right += 2
+    elsif response_4 == "Disagree"
+      self.left += 2
     end
 
-    if answer_5 == "Strongly Agree"
-      @left += 3
-    elsif answer_5 == "Strongly Disagree"
-      @right += 3
-    elsif answer_5 == "Agree"
-      @left += 2
-    elsif answer_5 == "Disagree"
-      @right += 2
+    if response_5 == "Strongly Agree"
+      self.left += 3
+    elsif response_5 == "Strongly Disagree"
+      self.right += 3
+    elsif response_5 == "Agree"
+      self.left += 2
+    elsif response_5 == "Disagree"
+      self.right += 2
     end
 
-    if @left <= 1
-      @political_stance = 7
-    elsif @left >= 2 && @left <= 4
-      @political_stance = 6
-    elsif @left >= 5 && @left <= 6
-      @political_stance = 5
-    elsif @left >= 7 && @left <= 8
-      @political_stance = 4
-    elsif @left >= 9 && @left <= 10
-      @political_stance = 3
-    elsif @left >= 11 && @left <= 13
-      @political_stance = 2
-    elsif @left >= 14 && @left <= 15
-      @political_stance = 1
+    if self.left <= 1
+      self.political_stance = 7
+    elsif self.left >= 2 && self.left <= 4
+      self.political_stance = 6
+    elsif self.left >= 5 && self.left <= 6
+      self.political_stance = 5
+    elsif self.left >= 7 && self.left <= 8
+      self.political_stance = 4
+    elsif self.left >= 9 && self.left <= 10
+      self.political_stance = 3
+    elsif self.left >= 11 && self.left <= 13
+      self.political_stance = 2
+    elsif self.left >= 14 && self.left <= 15
+      self.political_stance = 1
+    end
+  end
+
+  def set_quiz_result
+    if self.political_stance == 1
+      self.quiz_result = "far left liberal"
+    elsif self.political_stance == 2
+      self.quiz_result = "liberal"
+    elsif self.political_stance == 3
+      self.quiz_result = "moderate liberal"
+    elsif self.political_stance == 4
+      self.quiz_result = "moderate"
+    elsif self.political_stance == 5
+      self.quiz_result = "moderate conservative"
+    elsif self.political_stance == 6
+      self.quiz_result = "conservative"
+    elsif self.political_stance == 7
+      self.quiz_result = "far right conservative"
     end
   end
 

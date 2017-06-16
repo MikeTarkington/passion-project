@@ -4,6 +4,7 @@
   <% if logged_in? %>
       <% current_user = User.find_by(id: session[:id]) %>
       <div style="display:inline-block;"><%= current_user.username %></div>
+      <a style="margin: 10px 10px 10px 10px;" href='/users/:id'>Profile</a></li>
       <a style="margin: 10px 10px 10px 10px;" href='/logout'>Logout</a></li>
       <a style="margin: 10px 10px 10px 10px;" href='/'>Home</a></li>
   <% else %>

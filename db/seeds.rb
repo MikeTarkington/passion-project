@@ -40,7 +40,7 @@ quizzes_needed.times do
   quiz_questions[:question_2] = 'Abortions should be legal under certain circumstances.'
   quiz_questions[:question_3] = 'The most successful and wealtheist citizens of a nation are the primary driving force of national success.'
   quiz_questions[:question_4] = 'Government regulations interfere with freedom more than they help protect it.'
-  quiz_questions[:question_5] = 'We need a large government in order to handle all the important tasks where the prosperity of the public is at stake.'
+  quiz_questions[:question_5] = 'We need a large government in order to handle all large scale issues where the prosperity of the public is at stake.'
 
   quiz = Quiz.create(quiz_questions)
 
