@@ -3,6 +3,9 @@ class CreateResponses < ActiveRecord::Migration
     create_table :responses do |t|
       # t.integer :quiz_id, null: false
       # t.integer :user_id, null: false
+      t.integer :left, default: 0
+      t.integer :right, default: 0
+      t.integer :political_stance, default: 0
       t.string :response_1
       t.string :response_2
       t.string :response_3

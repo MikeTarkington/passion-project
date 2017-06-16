@@ -21,11 +21,8 @@ var memberSearchListener = function () {
       $('#search-result-holder').html(response);
       console.log("success");
     })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
+    .fail(function(r) {
+      console.log("error ajaxing in the politician", r);
     });
 
 

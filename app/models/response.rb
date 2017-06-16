@@ -2,11 +2,12 @@ class Response < ActiveRecord::Base
   belongs_to :user
   belongs_to :quiz
 
-  def initialize
-    @left = 0
-    @right = 0
-    @political_stance = 0
-  end
+  # def initialize(args = {})
+  #   super
+  #   @left = 0
+  #   @right = 0
+  #   @political_stance = 0
+  # end
 
   def stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
 
