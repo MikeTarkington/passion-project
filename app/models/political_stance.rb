@@ -111,6 +111,7 @@ db.execute(create_quiz_results_table_cmd)
 # -- BUSINESS LOGIC
 
 def stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
+
   left = 0
   right = 0
   political_stance = 0
