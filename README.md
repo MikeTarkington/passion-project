@@ -2,7 +2,7 @@
 
 For a thorough explanation of the project concept, with supporting videos, prototype previews, and more, visit the blog site [here](https://www.digiciti.org).
 
-The first pieces of the application are currently hosted [here](https://frozen-castle-94435.herokuapp.com/)
+The first pieces of the application are currently hosted [here](https://frozen-castle-94435.herokuapp.com/) but there is already more content in development.
 
 
 ## A Personal Project
@@ -22,4 +22,4 @@ The project has been started in Sinatra with some basic testing and planning as 
 Image sample of accessed API content:
 ![Sample Image](https://github.com/MikeTarkington/passion-project/blob/master/Screenshot%20from%202017-07-20%2013-17-56.png?raw=true)
 
-#### Stay Tuned for Updates...
+#### Star/Watch for Updates...
