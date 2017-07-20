@@ -9,7 +9,7 @@ Image sample of accessed API content:
 
 ## A Personal Project
 
-I started working on digiciti back in 2011 while I was studying political science and realized how much our antiquated political processes could be improved by use of ubiquitous technological advances.  When I started the project I was not able to program web or mobile applications but I managed to create some mock-up prototypes that were semi functional.  As of July 2017 I have completed a coding bootcamp program and started developing digiciti.org as a side project.
+I started working on DigiCiti back in 2011 while I was studying political science and realized how much our antiquated political processes could be improved by use of ubiquitous technological advances.  When I started the project I was not able to program web or mobile applications but I managed to create some mock-up prototypes that were semi functional.  As of July 2017 I completed a coding bootcamp program and started developing digiciti.org as a side project.
 
 ## Project Summary
 
