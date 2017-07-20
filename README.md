@@ -19,7 +19,7 @@ There are a number of other tools and networks attempting to offer similar featu
 
 The project has been started in Sinatra with some basic testing and planning as well as confirmed usability of [ProPublica](https://www.propublica.org/datastore/api/propublica-congress-api) API for data on members of congress and their photos from a public [repository](https://github.com/unitedstates/images) of US data.  The project will be built primarily in Rails 5 for the web application and this will double as a backend API to support the React Native front-end for the mobile application.
 
-Image Sample of Accessed API Content:
+Image sample of accessed API content:
 ![Sample Image](https://github.com/MikeTarkington/passion-project/blob/master/Screenshot%20from%202017-07-20%2013-17-56.png?raw=true)
 
 #### Stay Tuned for Updates...
