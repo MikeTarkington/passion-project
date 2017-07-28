@@ -4,6 +4,9 @@ For a thorough explanation of the project concept, with supporting videos, proto
 
 The first pieces of the application are currently hosted [here](https://frozen-castle-94435.herokuapp.com/) but there is already more content in development.
 
+Image sample of quiz for determining ones political stance:
+![Sample Image](https://github.com/MikeTarkington/passion-project/blob/master/Screenshot%20from%202017-07-27%2020-39-11.png?raw=true)
+
 Image sample of accessed API content:
 ![Sample Image](https://github.com/MikeTarkington/passion-project/blob/master/Screenshot%20from%202017-07-20%2013-17-56.png?raw=true)
 
